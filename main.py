@@ -9,3 +9,6 @@ class Domanda:
         self.punteggio = punteggio
         self.opzione_corretta = opzione_corretta
         self.opzioni = opzioni
+
+    def __str__(self):
+        pass
