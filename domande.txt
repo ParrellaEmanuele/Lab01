@@ -197,6 +197,7 @@ Lhotse
 Chi ha formulato la teoria del Big Bang insieme a George Gamow e altri?
 4
 Ralph Alpher
+
 Albert Einstein
 Stephen Hawking
 Carl Sagan

@@ -1,14 +1,6 @@
-class Domanda:
-    domanda: str
-    punteggio: int
-    opzione_corretta: str
-    opzioni: [str]
+from game import TriviaGame
 
-    def __init__(self, domanda: str, punteggio: int, opzione_corretta: str, opzioni: [str]):
-        self.domanda = domanda
-        self.punteggio = punteggio
-        self.opzione_corretta = opzione_corretta
-        self.opzioni = opzioni
-
-    def __str__(self):
-        pass
+if __name__ == "__main__":
+    TriviaGame.carica_dizionario("domande.txt")
+    TriviaGame.print_menu()
+    TriviaGame.play()
