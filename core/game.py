@@ -1,16 +1,12 @@
-from dataclasses import dataclass
-from domanda import Domanda
-from player import Player
+from core.domanda import Domanda
+from core.player import Player
 import random
 
 class TriviaGame:
-    lista_domande: list[Domanda] = []
-
     def __init__(self) -> None:
-        pass
+        self.lista_domande: list[Domanda] = []
 
-    @classmethod
-    def carica_dizionario(cls, file_name: str) -> None:
+    def carica_dizionario(self, file_name: str) -> None:
         with open(file_name, "r") as f:
             cnt = 1
             testo_domanda: str = ""
@@ -36,17 +32,16 @@ class TriviaGame:
 
                 elif cnt == 6:
                     opzioni.append(line)
-                    nuova_domanda = Domanda(testo_domanda, punteggio, opzione_corretta, list(opzioni))
-                    cls.lista_domande.append(nuova_domanda)
+                    nuova_domanda = Domanda(testo_domanda, punteggio, opzione_corretta, opzioni)
+                    self.lista_domande.append(nuova_domanda)
 
                 else:
-                    opzioni.clear()
+                    opzioni = []
                     cnt = 0
 
                 cnt += 1
 
-    @classmethod
-    def print_menu(cls) -> None:
+    def print_menu(self) -> None:
         print(
             f"-" * 45,
             "\nBenvenutx in Trivia Game, iniziamo a giocare!\n",
@@ -54,8 +49,7 @@ class TriviaGame:
             sep = ""
         )
 
-    @classmethod
-    def salva_punteggio(cls, n: str, p: int, file_name: str) -> None:
+    def salva_punteggio(self, n: str, p: int, file_name: str) -> None:
         storico = []
 
         with open(file_name, "r") as f:
@@ -77,14 +71,13 @@ class TriviaGame:
             for record in storico:
                 f.write(f"{record[0]} {record[1]}\n")
 
-    @classmethod
-    def play(cls) -> None:
+    def play(self) -> None:
         player = Player()
         punteggio_max = 0
         vinto = False
         domande_per_difficolta: dict[str, list[str]] = {}
 
-        for domanda_obj in cls.lista_domande:
+        for domanda_obj in self.lista_domande:
             punteggio_domanda = domanda_obj.punteggio
 
             if punteggio_domanda > punteggio_max:
@@ -106,7 +99,6 @@ class TriviaGame:
 
             print(f"Livello {player.points}) {domanda_pescata.domanda}")
             for i in range(4):
-                cnt = 1
                 print(f"        {i + 1}. {risposte_domanda[i]}")
 
             risposta_selezionata = int(input("Inserisci la risposta: "))
@@ -125,4 +117,4 @@ class TriviaGame:
         print(f"Hai totalizzato {player.points} punti!")
         player.name = input("Inserisci tu nickname: ")
 
-        cls.salva_punteggio(player.name, player.points, "punti.txt")
+        self.salva_punteggio(player.name, player.points, "data/punti.txt")

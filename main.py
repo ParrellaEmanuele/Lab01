@@ -1,6 +1,7 @@
-from game import TriviaGame
+from core.game import TriviaGame
 
 if __name__ == "__main__":
-    TriviaGame.carica_dizionario("domande.txt")
-    TriviaGame.print_menu()
-    TriviaGame.play()
+    gioco = TriviaGame()
+    gioco.carica_dizionario("data/domande.txt")
+    gioco.print_menu()
+    gioco.play()

@@ -1,0 +1,7 @@
+Emanuele 5
+Emanuele.2 5
+Emanuele.3 5
+Paolo 4
+Abc 2
+Lucia 1
+Giuseppe 0

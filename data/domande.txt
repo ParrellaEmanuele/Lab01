@@ -149,7 +149,7 @@ Chi ha sviluppato la teoria dei numeri primi?
 3
 Euclide
 Gauss
-Euler
+Eulero
 Fermat
 
 Quale pianeta è conosciuto come il "gigante gassoso"?
@@ -197,7 +197,6 @@ Lhotse
 Chi ha formulato la teoria del Big Bang insieme a George Gamow e altri?
 4
 Ralph Alpher
-
 Albert Einstein
 Stephen Hawking
 Carl Sagan
